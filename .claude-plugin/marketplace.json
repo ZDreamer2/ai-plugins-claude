@@ -1,0 +1,21 @@
+{
+	"name": "zd-plugins",
+	"owner": {
+		"name": "ZDreamer2"
+	},
+	"metadata": {
+		"description": "AI documentation and marketplace authoring plugins"
+	},
+	"plugins": [
+		{
+			"name": "ai-doc",
+			"source": "./ai-doc",
+			"description": "AiDoc: создание, улучшение и поддержка документации для AI-агентов"
+		},
+		{
+			"name": "ai-marketplace",
+			"source": "./ai-marketplace",
+			"description": "Ai plugins marketplace development"
+		}
+	]
+}
