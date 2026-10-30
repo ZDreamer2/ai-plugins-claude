@@ -2,33 +2,21 @@
 
 ## What is document in WorkflowDoc format
 
-A WorkflowDoc is a step-by-step procedure document that instructs AI agents to complete specific multi-step tasks. It guides sequential execution through clearly defined phases while balancing structured coordination with investigative freedom. Each step represents a distinct action with clear completion criteria, and verification checkpoints ensure execution quality.
+A WorkflowDoc is a step-by-step procedure that instructs AI agents to complete a task while balancing structured coordination with investigative freedom.
 
 ## MUST read before planning WorkflowDoc document
 
 - [Constraint theory](../../Theory/GuideVsGiveFreedom.md) - Apply when determining step specificity vs flexibility
 - [Workflow design theory](Theory/WorkflowTheory.md) - Use its guidance to choose the workflow structure and reference shared concepts
-- [AiDocMetaDoc creation workflow](../../workflows/meta/do.md) - Study its conditional context gathering and validation as a structure example
-- [AiDoc creation workflow](../../workflows/build/do.md) - Study its ordered reading dependencies and validation as a structure example
 
 ## MAY read for additional context before planning WorkflowDoc document
 
-- [Plan-Execute pattern](Theory/PlanExecutePattern.md) - Read when using Plan-Execute Pattern
-- [Command workflow patterns](Theory/CommandWorkflow.md) - Read when workflow is an AI agent command/skill
-
-Plan-Execute Pattern blocks (read the [Plan-Execute pattern](Theory/PlanExecutePattern.md) first):
-- [Read necessary files step](Blocks/ReadNecessaryFilesStep.md) - Read when defining the context phase and its reading dependencies
-- [Todo creation step](Blocks/CreateTodoStep.md) - Read when turning a plan into tasks with verification checks
-- [Execute plan step](Blocks/ExecutePlanStep.md) - Read when defining execution of the prepared todo list
-
-Other workflow blocks:
-- [User approval step](Blocks/UserApprovalStep.md) - Read when workflow needs user approval before proceeding
-- [Subagent delegation step](Blocks/CallSubagentStep.md) - Read when workflow delegates work to subagents
+- [Subagent delegation](SubagentDelegation.md) - Read when a workflow should preserve a reusable subagent prompt
 
 ## WorkflowDoc template
 
 ```markdown
-# [Workflow Name] Documentation
+# [Workflow Name]
 
 ## Important Definitions (optional)
 
@@ -41,10 +29,10 @@ Other workflow blocks:
 ### Prerequisites (optional)
 - [Required conditions, tools, or knowledge]
 
-### Input
+### Input (optional)
 - [What the workflow receives or requires to start]
 
-### Output
+### Output (optional)
 - [What the workflow produces or accomplishes]
 
 ## Workflow
@@ -68,11 +56,13 @@ Other workflow blocks:
 
 ### "Important Definitions" section
 
-Rarely needed. When present, preserve without modification unless explicitly asked otherwise.
+Include only when the workflow requires domain-specific terminology that its reader may not know.
 
 ### Workflow Steps section
 
-Number steps sequentially. Each step title MUST start with active verb describing the action.
+Number steps sequentially. Each step title MUST start with an active verb describing the action.
+
+Consider AskUserQuestion for structured user questions.
 
 ### "Key Principles" section
 
@@ -80,14 +70,13 @@ Include when workflows have important constraints or patterns that don't fit nat
 
 ## WorkflowDoc example
 
-Study these workflow examples to understand practical patterns:
+Practical workflow examples:
 
 - [AiDoc creation workflow](../../workflows/build/do.md) - Demonstrates ordered context gathering, execution, and validation
 - [AiDocMetaDoc creation workflow](../../workflows/meta/do.md) - Demonstrates conditional context gathering and format selection
 
 ## Validation Rules
 
-- MUST follow template structure from template section
 - MUST comply with [AiDoc writing principles](../../Theory/AiDocBaseFormat.md)
 - Each step title MUST start with active verb
 - MUST number steps sequentially
